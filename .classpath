@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.8"/>
+	<classpathentry kind="src" path="src/main/java"/>
+	<classpathentry excluding="library/" kind="src" path="src/main/resources"/>
+	<classpathentry kind="lib" path="C:/Users/I354650/.m2/repository/com/unboundid/components/json/1.0.0/json-1.0.0.jar" sourcepath="C:/Users/I354650/.m2/repository/com/unboundid/components/json/1.0.0/json-1.0.0-sources.jar">
+		<attributes>
+			<attribute name="maven.pomderived" value="true"/>
+			<attribute name="maven.groupId" value="com.unboundid.components"/>
+			<attribute name="maven.artifactId" value="json"/>
+			<attribute name="maven.version" value="1.0.0"/>
+			<attribute name="maven.scope" value="compile"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="output" path="bin"/>
+</classpath>

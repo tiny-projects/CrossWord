@@ -73,7 +73,7 @@ public class CrossWordGenerator {
 				solutionBoard[row][col] = "[.]".toCharArray();
 			}
 		}
-		System.out.println("***[INFO] Template initialization complete");
+		// System.out.println("***[INFO] Template initialization complete");
 	}
 
 	public void createNew() {
@@ -83,7 +83,6 @@ public class CrossWordGenerator {
 			generate();
 			printCrossWord();
 			printClue();
-			printSolution();
 		} catch (Exception e) {
 			System.out.println("*** [ERROR] Error Creating New Game: " + e.getLocalizedMessage());
 			e.printStackTrace();
@@ -99,11 +98,11 @@ public class CrossWordGenerator {
 			if (!word.isEntered())
 				continue;
 			if (word.isOrientationHorizontal()) {
-				horizontalClues.add(
-						word.getValue() + " " + Integer.toString(word.getStartingPosition()) + " " + word.getMeaning());
+				horizontalClues.add("| =>  " + word.getValue() + " " + Integer.toString(word.getStartingPosition())
+						+ " " + word.getMeaning());
 			} else {
-				verticalCLues.add(
-						word.getValue() + " " + Integer.toString(word.getStartingPosition()) + " " + word.getMeaning());
+				verticalCLues.add("| =>  " + word.getValue() + " " + Integer.toString(word.getStartingPosition()) + " "
+						+ word.getMeaning());
 			}
 		}
 		System.out.println("HORIZONTAL");
@@ -112,6 +111,7 @@ public class CrossWordGenerator {
 		System.out.println("VERTICAL");
 		System.out.println("______________");
 		verticalCLues.forEach(System.out::println);
+		System.out.printf("\n\n\n\n\n");
 
 	}
 
@@ -133,7 +133,7 @@ public class CrossWordGenerator {
 					position = ThreadLocalRandom.current().nextInt(1, wordCounts);
 					wordPositionAlreadyCovered.add(position);
 				}
-				System.out.println("***[INFO] Word to be found at line " + position);
+				// System.out.println("***[INFO] Word to be found at line " + position);
 			}
 			// Sorting the positions of the word
 			Collections.sort(wordPositionAlreadyCovered);
@@ -154,11 +154,11 @@ public class CrossWordGenerator {
 					wordAtCeratainLineNumber.setMeaning(wordArray[1]);
 					wordList.add(wordAtCeratainLineNumber);
 					positionToBeFoundNext = wordPositionAlreadyCovered.get(iter++);
-					System.out.println(positionToBeFoundNext + "<----------");
+					// System.out.println(positionToBeFoundNext + "<----------");
 				}
 				lineNum++;
 			}
-			System.out.println("*** [INFO]: Word Reading Complete");
+			// System.out.println("*** [INFO]: Word Reading Complete");
 		} catch (Exception e) {
 			System.out.println("****[ERROR] While Reading Dictionary to Fetch File, " + e.getMessage());
 		}
@@ -197,7 +197,7 @@ public class CrossWordGenerator {
 			else
 				wordToBeEntered.setOrientationHorizontal(true);
 			if (!isAnyCommonCharacter(existingWord, wordToBeEntered)) {
-				System.out.println("***[INFO]: No Common character found");
+				// System.out.println("***[INFO]: No Common character found");
 				// Randomly deciding if this existing word will be cosidered for
 				// entering the word
 				if (ThreadLocalRandom.current().nextInt() % 2 == 0)
@@ -339,13 +339,15 @@ public class CrossWordGenerator {
 				defaultTemplate[pos][cellIndex][1] = ' ';
 				solutionBoard[pos][cellIndex][1] = wordVal.charAt(iterator++);
 			}
-		//	defaultTemplate[pos][1][1] = Integer.toString(horizontalCounter).toCharArray()[0];
+			// defaultTemplate[pos][1][1] =
+			// Integer.toString(horizontalCounter).toCharArray()[0];
 		} else {
 			for (int cellIndex = cellPosition, iterator = 0; iterator < wordVal.length(); cellIndex++) {
 				defaultTemplate[cellIndex][pos][1] = ' ';
 				solutionBoard[cellIndex][pos][1] = wordVal.charAt(iterator++);
 			}
-			//defaultTemplate[1][pos][1] = Integer.toString(verticalCounter).toCharArray()[0];
+			// defaultTemplate[1][pos][1] =
+			// Integer.toString(verticalCounter).toCharArray()[0];
 		}
 		word.setCellPosition(cellPosition);
 		word.setStartingPosition(pos);
@@ -366,7 +368,7 @@ public class CrossWordGenerator {
 		System.out.printf("\n\n\n\n");
 	}
 
-	private void printSolution() {
+	public void printSolution() {
 		System.out.printf("\n\n\n\n\n");
 		for (int row = 0; row <= 16; row++) {
 			for (int col = 0; col <= 16; col++)

@@ -23,4 +23,10 @@ public class DisplayMessages {
 		System.out.println("---------------");
 
 	}
+	
+	public void askConfirmationToShowAnswer()
+	{
+		System.out.println("  PRESS 5 to Show Answer");
+		System.out.println("  PRESS 2 To Exit");
+	}
 }
